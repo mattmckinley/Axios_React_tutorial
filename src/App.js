@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import API from "./Utils/API.js";
+import User from "./Utils/User.js";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      name: null,
+      avatar: null,
+      email: null
+    };
+  }
+
+  render() {
+    const { isLoading, name, avatar, email } = this.state;
+
+    return (
+      <User isLoading={isLoading} name={name} avatar={avatar} email={email} />
+    );
+  }
+
+  async componentDidMount() {
+    // Load async data.
+    // Update state with new data.
+    // Re-render our component.
+  }
 }
 
 export default App;
+
+
